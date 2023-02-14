@@ -5,7 +5,6 @@
 -  [ ] Typescript
 -  [ ] Expo
 -  [ ] Native Base
--  [ ] Firebase
 
 ## 🔖 Layout
 
