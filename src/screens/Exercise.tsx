@@ -1,7 +1,9 @@
 import { Center, Text } from 'native-base';
 
-export function Exercise(){
-  <Center flex={1}>
-    <Text>Exercise</Text>
-  </Center>
+export function Exercise() {
+  return (
+    <Center flex={1}>
+      <Text>Exercise</Text>
+    </Center>
+  )
 }
