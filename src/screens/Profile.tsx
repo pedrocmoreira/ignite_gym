@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { Center, ScrollView, Skeleton, VStack } from 'native-base';
+import { TouchableOpacity } from 'react-native';
+import { Center, Heading, ScrollView, Skeleton, Text, VStack } from 'native-base';
 
 import { ScreenHeader } from '@components/ScreenHeader';
 import { UserPhoto } from '@components/UserPhoto';
+import { Input } from '@components/Input';
+import { Button } from '@components/Button';
 
 const PHOTO_SIZE = 33;
 
@@ -12,7 +15,7 @@ export function Profile() {
   return (
     <VStack flex={1}>
       <ScreenHeader title='Perfil' />
-      <ScrollView>
+      <ScrollView contentContainerStyle={{ paddingBottom: 36 }}>
         <Center mt={6} px={10}>
           {
             photoIsLoading ?
@@ -30,6 +33,49 @@ export function Profile() {
                 size={PHOTO_SIZE}
               />
           }
+          <TouchableOpacity activeOpacity={.7}>
+            <Text color='green.500' fontWeight='bold' fontSize='md' mt={2} mb={8}>
+              Alterar foto
+            </Text>
+          </TouchableOpacity>
+
+          <Input
+            placeholder='Nome'
+            bg='gray.600'
+          />
+          <Input
+            value='pedromoreira@email.com'
+            bg='gray.600'
+            isDisabled
+          />
+
+          
+          <Heading color='gray.200' fontSize='md' mb={2} mt='12' alignSelf='flex-start'>
+            Alterar Senha
+          </Heading>
+
+          <Input
+            bg='gray.600'
+            placeholder='Senha antiga'
+            secureTextEntry
+          />
+
+          <Input
+            bg='gray.600'
+            placeholder='Nova senha'
+            secureTextEntry
+          />
+
+          <Input
+            bg='gray.600'
+            placeholder='Confirme a nova senha'
+            secureTextEntry
+          />
+
+          <Button
+            title='Atualizar'
+            mt={4}
+          />
         </Center>
       </ScrollView>
     </VStack>
