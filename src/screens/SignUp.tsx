@@ -11,7 +11,7 @@ import { Button } from '@components/Button';
 import { AuthNavigatorRoutesProps } from '@routes/auth.routes';
 
 export function SignUp() {
-  const { control } = useForm();
+  const { control, handleSubmit } = useForm();
 
   const navigation = useNavigation();
 
@@ -19,8 +19,8 @@ export function SignUp() {
     navigation.goBack();
   }
 
-  function handleSignUp() {
-    console.log(name)
+  function handleSignUp(data: any) {
+    console.log(data);
   }
 
 
@@ -97,20 +97,22 @@ export function SignUp() {
                 secureTextEntry
                 onChangeText={onChange}
                 value={value}
+                onSubmitEditing={handleSubmit(handleSignUp)}
+                returnKeyType='send'
               />
             )}
           />
 
           <Button
             title='Criar e acessar'
-            onPress={handleSignUp}
+            onPress={handleSubmit(handleSignUp)}
           />
         </Center>
 
         <Button
           title='Voltar para o login'
           variant='outline'
-          mt={24}
+          mt={20}
           onPress={handleGoBack}
         />
       </VStack>
